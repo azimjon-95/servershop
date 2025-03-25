@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const factorySchema = new mongoose.Schema({
     name: { type: String, required: true },
-    legalForm: { type: String, required: true, enum: ['MChJ', 'AJ', 'Other'] },
+    legalForm: { type: String, required: true },
     address: {
         region: { type: String, required: true },
         district: { type: String, required: true },
