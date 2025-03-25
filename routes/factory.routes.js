@@ -1,6 +1,6 @@
 const express = require('express');
-const authenticateToken = require('../../servershop-main/middleware/auth');
-const validateFactory = require('../../servershop-main/middleware/validateFactory');
+const authenticateToken = require('../middleware/auth');
+const validateFactory = require('../middleware/validateFactory');
 const FactoryService = require('../services/factory.service');
 
 const router = express.Router();
