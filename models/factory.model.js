@@ -22,3 +22,5 @@ const factorySchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Factory', factorySchema);
+
+
