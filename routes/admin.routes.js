@@ -17,15 +17,5 @@ router.post('/login', async (req, res) => {
     res.json({ token });
 });
 
-const setupAdmin = async () => {
-    const adminExists = await Admin.findOne({ username: 'admin' });
-    if (!adminExists) {
-        const hashedPassword = await bcrypt.hash('admin123', 10);
-        await new Admin({ username: 'admin', password: hashedPassword }).save();
-        console.log('Default admin created: admin/admin123');
-    }
-};
-
-setupAdmin();
 
 module.exports = router;
