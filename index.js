@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');
+const mongoose = require('mongoose');
 const adminRoutes = require('./routes/admin.routes');
 const factoryRoutes = require('./routes/factory.routes');
 
@@ -16,7 +16,16 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'authorization'] // bu hammasi serverga yuborilgan headersni qo'shadi
 }));
 
-// Database Connection
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log('MongoDB connected successfully!');
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
+        process.exit(1);
+    }
+};
+
 connectDB();
 
 // get
